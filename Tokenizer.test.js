@@ -44,31 +44,27 @@ test('Test "true true" are True Tokens: ', () => {
     expect(assertTokenizes("true true", [new TrueToken(), new TrueToken()])).toBe(true)
 })
 
-// These Last 4 tests are failing and I have no idea why....
-// I console logged the recieved value for every assertTokenizes
-// but the recieved for the ones below always stay empty
-// -------------- Failing Tests Start -------------------
-// test('Test single-digit Integer: ', () => { 
-//     expect(assertTokenizes("1", [new IntegerToken(1)])).toBe(true)
-// })
+test('Test single-digit Integer: ', () => { 
+    expect(assertTokenizes("1", [new IntegerToken(1)])).toBe(true)
+})
 
-// test('Test multi-digit Integer: ', () => { 
-//     expect(assertTokenizes("123", [new IntegerToken(123)])).toBe(true)
-// })
+test('Test multi-digit Integer: ', () => { 
+    expect(assertTokenizes("123", [new IntegerToken(123)])).toBe(true)
+})
 
-// test('Test all remaining: ', () => { 
-//     expect( assertTokenizes("(){} else if false",
-//     [new LeftParenToken(),
-//     new RightParenToken(),
-//     new LeftCurlyToken(),
-//     new RightCurlyToken(),
-//     new ElseToken(),
-//     new IfToken(),
-//     new FalseToken()
-//     ])).toBe(true)
-// })
+test('Test all remaining: ', () => { 
+    expect( assertTokenizes("(){} else if false",
+    [new LeftParenToken(),
+    new RightParenToken(),
+    new LeftCurlyToken(),
+    new RightCurlyToken(),
+    new ElseToken(),
+    new IfToken(),
+    new FalseToken()
+    ])).toBe(true)
+})
 
-// test('Test "Invalid": ', () => { 
-//     expect(assertTokenizes("$", null)).toBe(true)
-// })
+test('Test "Invalid": ', () => { 
+    expect(assertTokenizes("$", [null])).toBe(true)
+})
 

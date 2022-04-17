@@ -51,14 +51,14 @@ module.exports = class Tokenizer {
         let number = ""
 
         while (this.offset < this.input.length &&
-            this.isDigit(this.input.charAt(this.offset))) {
+                Number.isInteger(parseInt(this.input.charAt(this.offset)))) {
+            console.log(this.input.charAt(this.offset));
             number += this.input.charAt(this.offset);
             this.offset++;
         }
 
         if (number.length > 0) {
-            
-            return new IntegerToken(parseInt(number));
+            return new IntegerToken(number);
         } else {
             return null;
         }
@@ -110,12 +110,11 @@ module.exports = class Tokenizer {
         } else if (this.input.startsWith(")", this.offset)) {
             this.offset++;
             retval = new RightParenToken();
-        } if (this.input.startsWith("{", this.offset)) {
-            this.offset ++;
+        } else if (this.input.startsWith("{", this.offset)) {
+            this.offset++;
             retval = new LeftCurlyToken();
-        }
-        if (this.input.startsWith("}", this.offset)) {
-            this.offset ++;
+        } else if (this.input.startsWith("}", this.offset)) {
+            this.offset++;
             retval = new RightCurlyToken();
         }
 
@@ -141,7 +140,7 @@ module.exports = class Tokenizer {
 
     //Add tokenize()
     tokenize() {
-    let tokens = []
+        let tokens = []
         try {
             let token = this.tokenizeSingle();
 
