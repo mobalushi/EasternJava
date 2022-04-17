@@ -14,7 +14,6 @@ const RightCurlyToken = require("./RightCurlyToken")
 function assertTokenizes(input, expected) {
     let tokenizer = new Tokenizer(input);
     let recieved = tokenizer.tokenize();
-    console.log(recieved)
     if (expected.toString() === recieved.toString()){
         return true
     } else return false
