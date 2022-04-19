@@ -5,4 +5,4 @@ All Tokens pass tests [X]
 
 
 
-run npm install and use npm test in the console to run tests
+run **npm install** and use **npm test** in the console to run tests
